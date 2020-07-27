@@ -6,7 +6,7 @@
 
 #define parameter ranges
 sn_pcr = seq(0.6, 1.00, by=0.01)
-sp_pcr = seq(0.9, 0.99, by=0.01)
+sp_pcr = seq(0.9, 1.00, by=0.01)
 
 pop = 1000 #population size
 prev = seq(0, 0.5, by=0.05)  #COVID-19 prevalance
@@ -44,16 +44,16 @@ rm(i)
 # test_pos_true_neg = true_neg - test_neg_true_neg
 
 plot(x=prev[1:4], y=fn_hi[1:4], type="n", ylim=c(0,150), xlab="Hypothetical COVID-19 prevalence", ylab="Count of tests", main="A)")
-polygon(x=c(min(prev[1:4]),max(prev[1:4]),max(prev[1:4]),min(prev[1:4])), y=c(min(fn_hi[1:4]),max(fn_hi[1:4]),max(fn_lo[1:4]),min(fn_lo[1:4])), col=rgb(red=0.8,blue=0.8,green=0.8,alpha=1), border="NA")
-polygon(x=c(min(prev[1:4]),max(prev[1:4]),max(prev[1:4]),min(prev[1:4])), y=c(max(fp_hi[1:4]),min(fp_hi[1:4]),min(fp_lo[1:4]),max(fp_lo[1:4])), col=rgb(red=0.2,blue=0.2,green=0.2,alpha=.75), border="NA")
+polygon(x=c(min(prev[1:4]),max(prev[1:4]),max(prev[1:4]),min(prev[1:4])), y=c(min(fn_hi[1:4]),max(fn_hi[1:4]),max(fn_lo[1:4]),min(fn_lo[1:4])), col=rgb(red=0.2,blue=0.2,green=0.2,alpha=0.75), border="NA")
+polygon(x=c(min(prev[1:4]),max(prev[1:4]),max(prev[1:4]),min(prev[1:4])), y=c(max(fp_hi[1:4]),min(fp_hi[1:4]),min(fp_lo[1:4]),max(fp_lo[1:4])), col=rgb(red=0.8,blue=0.8,green=0.8,alpha=0.75), border="NA")
 lines(x=prev[1:4], y=prev[1:4] * pop, lwd=3)
-legend("topleft", legend=c("False positives","False negatives","True prevalence"), fill=c(rgb(red=0.2,blue=0.2,green=0.2,alpha=.75),rgb(red=0.8,blue=0.8,green=0.8,alpha=1),NA), border=c("black","black","white"), lty=c(NA,NA,1), cex=0.8)
+legend("topleft", legend=c("False positives","False negatives","True prevalence"), fill=c(rgb(red=0.8,blue=0.8,green=0.8,alpha=0.75),rgb(red=0.2,blue=0.2,green=0.2,alpha=.75),NA), border=c("black","black","white"), lty=c(NA,NA,1), cex=0.8)
 
 plot(x=prev, y=fn_hi, type="n", ylim=c(0,pop/2), xlab="Hypothetical COVID-19 prevalence", ylab="Count of tests", main="B)")
-polygon(x=c(min(prev),max(prev),max(prev),min(prev)), y=c(min(fn_hi),max(fn_hi),max(fn_lo),min(fn_lo)), col=rgb(red=0.8,blue=0.8,green=0.8,alpha=1), border="NA")
-polygon(x=c(min(prev),max(prev),max(prev),min(prev)), y=c(max(fp_hi),min(fp_hi),min(fp_lo),max(fp_lo)), col=rgb(red=0.2,blue=0.2,green=0.2,alpha=.75), border="NA")
+polygon(x=c(min(prev),max(prev),max(prev),min(prev)), y=c(min(fn_hi),max(fn_hi),max(fn_lo),min(fn_lo)), col=rgb(red=0.2,blue=0.2,green=0.2,alpha=0.75), border="NA")
+polygon(x=c(min(prev),max(prev),max(prev),min(prev)), y=c(max(fp_hi),min(fp_hi),min(fp_lo),max(fp_lo)), col=rgb(red=0.8,blue=0.8,green=0.8,alpha=0.75), border="NA")
 lines(x=prev, y=prev * pop, lwd=3)
-legend("topleft", legend=c("False positives","False negatives","True prevalence"), fill=c(rgb(red=0.2,blue=0.2,green=0.2,alpha=.75),rgb(red=0.8,blue=0.8,green=0.8,alpha=1),NA), border=c("black","black","white"), lty=c(NA,NA,1), cex=0.8)
+legend("topleft", legend=c("False positives","False negatives","True prevalence"), fill=c(rgb(red=0.8,blue=0.8,green=0.8,alpha=0.75),rgb(red=0.2,blue=0.2,green=0.2,alpha=.75),NA), border=c("black","black","white"), lty=c(NA,NA,1), cex=0.8)
 
 #5% prevalence
 i=2
